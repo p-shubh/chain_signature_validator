@@ -40,7 +40,9 @@ func GetEvmFlowIdAndMessage(mnemonic string) (walletAddress string, wallet *hdwa
 	fmt.Printf("Wallet Address: %s\n", walletAddress)
 
 	// Step 1: Get flowId
-	flowIDURL := fmt.Sprintf("http://localhost:3000/api/v1.0/flowid?walletAddress=%s&chain=evm", walletAddress)
+	flowIDURL := fmt.Sprintf("https://gateway.netsepio.com/api/v1.0/flowid?walletAddress=%s&chain=evm", walletAddress)
+
+	// flowIDURL := fmt.Sprintf("http://localhost:3000/api/v1.0/flowid?walletAddress=%s&chain=evm", walletAddress)
 
 	fmt.Printf("Fetching flowId from: %s\n", flowIDURL)
 
@@ -112,7 +114,8 @@ func GetToken(flowID, sign, walletAddress string) {
 
 	fmt.Printf("Auth request data: %s\n", string(authJSON))
 
-	authReq, err := http.NewRequest("POST", "http://localhost:3000/api/v1.0/authenticate", bytes.NewBuffer(authJSON))
+	authReq, err := http.NewRequest("POST", "https://gateway.netsepio.com/api/v1.0/authenticate", bytes.NewBuffer(authJSON))
+	// authReq, err := http.NewRequest("POST", "http://localhost:3000/api/v1.0/authenticate", bytes.NewBuffer(authJSON))
 	if err != nil {
 		fmt.Printf("Error creating auth request: %v\n", err)
 		return
