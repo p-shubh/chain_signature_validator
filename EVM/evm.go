@@ -258,7 +258,9 @@ func passMneomonicGetTheToken(mnemonic string) {
 
 	fmt.Println("FlowId: ", flowId)
 
-	message = fmt.Sprintf("%s%s", message, flowId)
+	eula := message
+
+	message = fmt.Sprintf("%s%s", eula, flowId)
 	// Generate signature
 
 	fmt.Println("Message: ", message)
