@@ -98,10 +98,10 @@ func GetToken(flowID, sign, walletAddress string) {
 	}
 	// Step 3: Authenticate
 	authData := map[string]string{
-		"chainName":     "evm",
-		"flowId":        flowID,
-		"signature":     sign,
-		"walletAddress": walletAddress,
+		"chainName": "evm",
+		"flowId":    flowID,
+		"signature": sign,
+		// "walletAddress": walletAddress,
 	}
 
 	fmt.Printf("Auth data: %v\n", authData)
